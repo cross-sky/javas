@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments :: head(title='disp1')">
+    <meta charset="UTF-8"/>
+    <title>ff</title>
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav th:replace="blank::navvs">
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">bbbbbb</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+                <form class="form-horizontal">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <div class="col-sm-3 control-label">
+                                <label>OnSet：</label>
+                            </div>
+                            <div class="col-sm-9 controls">
+                                <div class="switch" data-on="primary" data-off="info">
+                                    <input name="my-checkbox" type="checkbox" checked />
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3 control-label">
+                                <label>TemperSet：</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="number" name="temper" placeholder="请输入Temper" class="form-control" >
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="text-center" th:text="lala">居中对齐文本</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Select Basic -->
+                            <label class="col-sm-3 control-label">Select Mode</label>
+                            <div class="col-sm-3">
+                                <select class="form-control">
+                                    <option value="1">Enter</option>
+                                    <option value="2">Your</option>
+                                    <option value="3">Options</option>
+                                    <option value="4">Here!</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label th:text="ls">Select</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-sm-3">
+                            </div>
+                            <div class="col-sm-2">
+                                <button class="button button-primary button-box button-large button-longshadow-right" type="submit">
+                                    <p>Set</p>
+                                </button>
+                            </div>
+                            <div class="col-sm-2">
+                                <button class="button button-primary button-box button-large button-longshadow-right" type="reset">
+                                    <i class="fa fa-undo"></i>
+                                </button>
+                            </div>
+                            <div class="col-sm-5">
+                            </div>
+
+                        </div>
+
+
+                    </fieldset>
+                </form>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+
+    </div>
+
+<script>
+    $("[name='my-checkbox']").bootstrapSwitch();
+</script>
+
+</body>
+</html>
