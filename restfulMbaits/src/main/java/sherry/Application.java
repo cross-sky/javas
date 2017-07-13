@@ -26,15 +26,15 @@ public class Application extends SpringBootServletInitializer {
         return new DeviceRepositoryImpl();
     }
 
-    @Bean
-    public Converter<String, DeviceHot>deviceConvert(){
-        return new Converter<String, DeviceHot>() {
-            @Override
-            public DeviceHot convert(String s) {
-                return deviceRepository().findDevice(Long.valueOf(s));
-            }
-        };
-    }
+//    @Bean
+//    public Converter<String, DeviceHot>deviceConvert(){
+//        return new Converter<String, DeviceHot>() {
+//            @Override
+//            public DeviceHot convert(String s) {
+//                return deviceRepository().findDevice(Long.valueOf(s));
+//            }
+//        };
+//    }
 
 
     @Override

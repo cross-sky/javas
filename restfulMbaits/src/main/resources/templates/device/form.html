@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments :: head(title='form')">
+    <meta charset="UTF-8"/>
+    <title>ff</title>
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav th:replace="blank::navvs">
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">bbbbbb</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+                <form class="form-horizontal" th:object="${device}" method="post" th:action="@{/happ/modify}" action="#">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <div class="col-sm-3 control-label">
+                                <label>OnSet：</label>
+                            </div>
+                            <div class="col-sm-9 ">
+                                <div class="switch">
+                                    <input name="status" type="checkbox" th:checked="*{status}" th:value="*{status}? 1 : 0"/>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3 control-label">
+                                <label>TemperSet：</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="number" th:field="*{temper}" name="temper"  placeholder="请输入Temper" class="form-control" >
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="text-center" th:text="lala">居中对齐文本</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Select Basic -->
+                            <label class="col-sm-3 control-label">Select Mode</label>
+                            <div class="col-sm-3">
+                                <select class="form-control" th:field="*{mode}">
+                                    <option value="1" th:selected="*{mode}=='1'">HotModel</option>
+                                    <option value="2" th:selected="*{mode}=='2'">ColdModel</option>
+                                    <option value="3" th:selected="*{mode}=='3'">WaterModel</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label th:text="ls">Select</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="text">Text</label>
+                            <div class="col-sm-3">
+                                <input type="text" th:field="*{text}"/>
+                            </div>
+                            <div class="col-sm-6">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-sm-3">
+                            </div>
+                            <div class="col-sm-2">
+                                <button class="button button-primary button-box button-large button-longshadow-right" type="submit">
+                                    <p>Set</p>
+                                </button>
+                            </div>
+                            <div class="col-sm-2">
+                                <button class="button button-primary button-box button-large button-longshadow-right" type="reset">
+                                    <i class="fa fa-undo"></i>
+                                </button>
+                            </div>
+                            <div class="col-sm-5">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                            </div>
+                            <div class="col-sm-3 alert alert-error">
+                                <p th:text="${message}"></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" th:field="*{id}" hidden>
+                            </div>
+                        </div>
+
+
+
+                    </fieldset>
+                </form>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+
+    </div>
+
+<script>
+    $("[name='status']").bootstrapSwitch(
+            {
+                onText:"启动",
+                offText:"停止",
+                onColor:"success",
+                offColor:"info",
+                size:"normal",
+                onSwitchChange:function(event, state) {
+                    if(state==true) {
+                        $(this).val("1");
+                    }else{
+                        $(this).val("0");
+                    }
+                }
+            }
+    );
+</script>
+
+</body>
+</html>

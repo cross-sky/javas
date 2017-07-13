@@ -16,18 +16,21 @@ public class DeviceRepositoryImpl implements DeviceRepository {
     private static AtomicLong counter = new AtomicLong();
     private final ConcurrentMap<Long, DeviceHot> deviceHots = new ConcurrentHashMap<Long, DeviceHot>();
     private final Map<Integer, String> map = new HashMap<Integer, String>();
-
     {
         map.put(1, "HotMode");
         map.put(2, "ColdMode");
         map.put(3, "WaterMode");
+    }
 
+    {
         Long id = counter.incrementAndGet();
         DeviceHot deviceHot = new DeviceHot();
         deviceHot.setId(id);
         deviceHot.setTemper(45);
         deviceHot.setText("first text");
-        deviceHot.setMode(1);
+        deviceHot.setMode(2);
+        deviceHot.setStatus(0);
+        deviceHot.setModeStr(map.get(deviceHot.getMode()));
         deviceHots.put(id, deviceHot);
     }
 
@@ -45,6 +48,7 @@ public class DeviceRepositoryImpl implements DeviceRepository {
             deviceHot.setId(id);
         }
         this.deviceHots.put(id, deviceHot);
+        deviceHot.setModeStr(map.get(deviceHot.getMode()));
         return deviceHot;
     }
 

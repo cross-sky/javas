@@ -9,6 +9,7 @@ public class DeviceHot {
     private int temper;
     private String text;
     private int mode;
+    private String modeStr;
 
     public Long getId() {
         return id;
@@ -48,5 +49,13 @@ public class DeviceHot {
 
     public void setMode(int mode) {
         this.mode = mode;
+    }
+
+    public String getModeStr() {
+        return modeStr;
+    }
+
+    public void setModeStr(String modeStr) {
+        this.modeStr = modeStr;
     }
 }

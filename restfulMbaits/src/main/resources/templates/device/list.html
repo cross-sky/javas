@@ -36,12 +36,14 @@
                         <tr th:if="${devices.empty}">
                             <td colspan="3">No Devices</td>
                         </tr>
-                        <tr th:each="device : ${decives}">
-                            <td th:text="${devices.id}">1</td>
-                            <td th:text="${devices.status}">1</td>
-                            <td th:text="${devices.temper}">1</td>
-                            <td th:text="${devices.mode}">1</td>
-                            <td th:text="${devices.text}">SL</td>
+                        <tr th:each="device : ${devices}">
+                            <td th:text="${device.id}">1</td>
+                            <td th:text="${device.status} ? 'On' : 'Off'"}>1</td>
+                            <td th:text="${device.modeStr}">1</td>
+                            <td th:text="${device.temper}">1</td>
+                            <td>
+                                <a href="form.html" th:href="@{'/happ/view/' + ${device.id}}" th:text="${device.text}">Link</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
