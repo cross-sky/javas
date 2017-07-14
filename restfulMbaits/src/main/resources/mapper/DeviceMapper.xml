@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sherry.happ.domain.DeviceDao">
+    <resultMap id="BaseResultMap" type="sherry.happ.entity.DeviceHot">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="temper" jdbcType="INTEGER" property="temper" />
+        <result column="mode" jdbcType="INTEGER" property="mode" />
+        <result column="modeStr" jdbcType="VARCHAR" property="modeStr" />
+        <result column="text" jdbcType="VARCHAR" property="text" />
+    </resultMap>
+
+    <parameterMap id="DeviceHot" type="sherry.happ.entity.DeviceHot"/>
+
+    <sql id="Base_Column_List">
+        id, status, temper, mode, modeStr, text
+    </sql>
+
+    <select id="findDevice" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List" />
+        from device
+        where id = #{id}
+    </select>
+
+    <select id="findAll" resultMap="BaseResultMap" >
+        select
+        <include refid="Base_Column_List" />
+        from device
+    </select>
+
+    <insert id="saveDevice" parameterMap="DeviceHot" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        device (status, temper, mode, modeStr, text)
+        values
+        (#{status,jdbcType=INTEGER}, #{temper,jdbcType=INTEGER}, #{mode,jdbcType=INTEGER},
+      #{modeStr,jdbcType=VARCHAR}, #{text,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateDevice" parameterMap="DeviceHot">
+        update
+        device
+        set
+        <if test="status != null">
+            status = #{status,jdbcType=INTEGER},
+        </if>
+        <if test="temper != null">
+            temper = #{temper,jdbcType=INTEGER},
+        </if>
+        <if test="mode != null">
+            mode = #{mode,jdbcType=INTEGER},
+        </if>
+        <if test="modeStr != null">
+            modeStr = #{modeStr,jdbcType=VARCHAR},
+        </if>
+        <if test="text != null">
+            text = #{text,jdbcType=VARCHAR}
+        </if>
+        where
+        id = #{id}
+    </update>
+
+    <delete id="deleteDevice" parameterType="java.lang.Long">
+        delete from
+        device
+        where
+        id = #{id}
+    </delete>
+
+
+
+
+
+</mapper>

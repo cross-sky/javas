@@ -15,16 +15,16 @@ import sherry.happ.service.DeviceRepositoryImpl;
  * Created by Crossing on 2017-7-4.
  */
 @SpringBootApplication
-@MapperScan("sherry.iot2.dao")
+//@MapperScan("sherry.iot2.dao")
 public class Application extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
-    public DeviceRepository deviceRepository() {
-        return new DeviceRepositoryImpl();
-    }
+//    @Bean
+//    public DeviceRepository deviceRepository() {
+//        return new DeviceRepositoryImpl();
+//    }
 
 //    @Bean
 //    public Converter<String, DeviceHot>deviceConvert(){

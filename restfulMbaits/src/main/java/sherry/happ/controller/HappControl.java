@@ -26,6 +26,13 @@ public class HappControl {
         this.deviceRepository = deviceRepository;
     }
 
+    private final Map<Integer, String> map = new HashMap<Integer, String>();
+    {
+        map.put(1, "HotMode");
+        map.put(2, "ColdMode");
+        map.put(3, "WaterMode");
+    }
+
     @GetMapping("/iot")
     public ModelAndView nodeSet() {
         return new ModelAndView("/iiot");
@@ -67,13 +74,18 @@ public class HappControl {
         if (deviceHot.getStatus() != 1) {
             deviceHot.setStatus(0);
         }
+        deviceHot.setModeStr(map.get(deviceHot.getMode()));
 
-        redirect.addFlashAttribute("message", "success save");
+        redirect.addFlashAttribute("message", "success saveDevice");
 
-        deviceHot = this.deviceRepository.save(deviceHot);
+        if (deviceHot.getId() == null) {
+            deviceHot = this.deviceRepository.save(deviceHot);
+        }else {
+            deviceHot = this.deviceRepository.updateDevice(deviceHot);
+        }
         ModelAndView mode = new ModelAndView("redirect:/happ/view/{id}");
         mode.addObject("id", deviceHot.getId());
-        //mode.addObject("message", "success save");
+        //mode.addObject("message", "success saveDevice");
         return mode;
     }
 

@@ -1,5 +1,6 @@
 package sherry.iot2.dao;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import sherry.iot2.domain.City;
 
@@ -8,6 +9,7 @@ import java.util.List;
 /**
  * Created by Crossing on 2017-7-5.
  */
+@Mapper
 public interface CityDao {
     List<City> findAllCity();
 

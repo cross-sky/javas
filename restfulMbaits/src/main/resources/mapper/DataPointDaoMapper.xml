@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sherry.datapoint.mapper.DataPointDaoMapper">
+  <resultMap id="BaseResultMap" type="sherry.datapoint.domain.DataPointDao">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="device_id" jdbcType="INTEGER" property="deviceId" />
+    <result column="water_in_t" jdbcType="REAL" property="waterInT" />
+    <result column="water_out_t" jdbcType="REAL" property="waterOutT" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, device_id, water_in_t, water_out_t
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from datapoint
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from datapoint
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="sherry.datapoint.domain.DataPointDao">
+    insert into datapoint (id, device_id, water_in_t, 
+      water_out_t)
+    values (#{id,jdbcType=INTEGER}, #{deviceId,jdbcType=INTEGER}, #{waterInT,jdbcType=REAL}, 
+      #{waterOutT,jdbcType=REAL})
+  </insert>
+  <insert id="insertSelective" parameterType="sherry.datapoint.domain.DataPointDao">
+    insert into datapoint
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="deviceId != null">
+        device_id,
+      </if>
+      <if test="waterInT != null">
+        water_in_t,
+      </if>
+      <if test="waterOutT != null">
+        water_out_t,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="waterInT != null">
+        #{waterInT,jdbcType=REAL},
+      </if>
+      <if test="waterOutT != null">
+        #{waterOutT,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="sherry.datapoint.domain.DataPointDao">
+    update datapoint
+    <set>
+      <if test="deviceId != null">
+        device_id = #{deviceId,jdbcType=INTEGER},
+      </if>
+      <if test="waterInT != null">
+        water_in_t = #{waterInT,jdbcType=REAL},
+      </if>
+      <if test="waterOutT != null">
+        water_out_t = #{waterOutT,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="sherry.datapoint.domain.DataPointDao">
+    update datapoint
+    set device_id = #{deviceId,jdbcType=INTEGER},
+      water_in_t = #{waterInT,jdbcType=REAL},
+      water_out_t = #{waterOutT,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

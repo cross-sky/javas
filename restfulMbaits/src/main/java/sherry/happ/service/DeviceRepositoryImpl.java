@@ -2,7 +2,9 @@ package sherry.happ.service;
 
 import sherry.happ.entity.DeviceHot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -36,8 +38,9 @@ public class DeviceRepositoryImpl implements DeviceRepository {
 
 
     @Override
-    public Iterable<DeviceHot> findAll() {
-        return this.deviceHots.values();
+    public List<DeviceHot> findAll() {
+        return null;
+        //return this.deviceHots.values();
     }
 
     @Override
@@ -58,7 +61,17 @@ public class DeviceRepositoryImpl implements DeviceRepository {
     }
 
     @Override
-    public void deleteDevice(Long id) {
+    public Long deleteDevice(Long id) {
         this.deviceHots.remove(id);
+        return id;
     }
+
+    @Override
+    public DeviceHot updateDevice(DeviceHot deviceHot) {
+        this.deviceHots.put(deviceHot.getId(), deviceHot);
+        deviceHot.setModeStr(map.get(deviceHot.getMode()));
+        return deviceHot;
+    }
+
+
 }
