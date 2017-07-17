@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/mybatisMul/mybatisMul.iml" filepath="$PROJECT_DIR$/mybatisMul/mybatisMul.iml" />
       <module fileurl="file://$PROJECT_DIR$/restfulMbaits/restful.iml" filepath="$PROJECT_DIR$/restfulMbaits/restful.iml" />
     </modules>
   </component>

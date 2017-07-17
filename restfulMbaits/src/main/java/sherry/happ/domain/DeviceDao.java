@@ -20,3 +20,4 @@ public interface DeviceDao {
 
     Long updateDevice(DeviceHot deviceHot);
 }
+

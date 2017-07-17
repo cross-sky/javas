@@ -10,6 +10,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/restfulMbaits/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatisMul/pom.xml" />
       </list>
     </option>
   </component>

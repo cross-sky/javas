@@ -5,14 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>sherry</groupId>
-    <artifactId>restful</artifactId>
+    <artifactId>mybatisMul</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-
 
     <properties>
         <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
         <mysql-connector>5.1.39</mysql-connector>
+        <argLine>-Dfile.encoding=UTF-8</argLine>
     </properties>
 
 
@@ -34,12 +33,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector}</version>
-        </dependency>
-
-        <!-- Compile -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
 
         <dependency>
@@ -76,8 +69,7 @@
     </dependencies>
     <build>
         <plugins>
-
-            <!--
+<!--
             <plugin>
                 <dependencies>
                     <dependency>
@@ -103,7 +95,7 @@
                     <overwrite>true</overwrite>
                 </configuration>
             </plugin>
-            -->
+-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
