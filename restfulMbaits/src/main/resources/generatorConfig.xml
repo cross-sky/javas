@@ -12,8 +12,11 @@
 
     <context id="sherry_mysql_tables" targetRuntime="MyBatis3">
         <!-- 防止生成的代码中有很多注释，加入下面的配置控制 -->
+
+        <plugin type="com.xxg.mybatis.plugins.MySQLLimitPlugin"></plugin>
+
         <commentGenerator>
-            <property name="suppressAllComments" value="false" />
+            <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true" />
         </commentGenerator>
 
@@ -30,7 +33,7 @@
         </javaTypeResolver>
 
         <!-- 数据表对应的model层  -->
-        <javaModelGenerator targetPackage="sherry.datapoint.domain" targetProject="${project}">
+        <javaModelGenerator targetPackage="sherry.datapoint.pojo" targetProject="${project}">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -46,10 +49,10 @@
         </javaClientGenerator>
 
         <!-- 数据表进行生成操作 schema:相当于库名; tableName:表名; domainObjectName:对应的DO -->
-        <table schema="springbootdb" tableName="datapoint" domainObjectName="DataPointDao"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
+        <table schema="springbootdb" tableName="datapoint" domainObjectName="DataPoint"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
         </table>
 
     </context>

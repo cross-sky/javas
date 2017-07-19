@@ -1,9 +1,9 @@
-package sherry.data.pojo;
+package sherry.datapoint.pojo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDaoExample {
+public class DataPointExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -14,7 +14,7 @@ public class ProductDaoExample {
 
     private Integer offset;
 
-    public ProductDaoExample() {
+    public DataPointExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -184,133 +184,183 @@ public class ProductDaoExample {
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdIsNull() {
-            addCriterion("category_id is null");
+        public Criteria andDeviceIdIsNull() {
+            addCriterion("device_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdIsNotNull() {
-            addCriterion("category_id is not null");
+        public Criteria andDeviceIdIsNotNull() {
+            addCriterion("device_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdEqualTo(Integer value) {
-            addCriterion("category_id =", value, "categoryId");
+        public Criteria andDeviceIdEqualTo(Integer value) {
+            addCriterion("device_id =", value, "deviceId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdNotEqualTo(Integer value) {
-            addCriterion("category_id <>", value, "categoryId");
+        public Criteria andDeviceIdNotEqualTo(Integer value) {
+            addCriterion("device_id <>", value, "deviceId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdGreaterThan(Integer value) {
-            addCriterion("category_id >", value, "categoryId");
+        public Criteria andDeviceIdGreaterThan(Integer value) {
+            addCriterion("device_id >", value, "deviceId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("category_id >=", value, "categoryId");
+        public Criteria andDeviceIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("device_id >=", value, "deviceId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdLessThan(Integer value) {
-            addCriterion("category_id <", value, "categoryId");
+        public Criteria andDeviceIdLessThan(Integer value) {
+            addCriterion("device_id <", value, "deviceId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdLessThanOrEqualTo(Integer value) {
-            addCriterion("category_id <=", value, "categoryId");
+        public Criteria andDeviceIdLessThanOrEqualTo(Integer value) {
+            addCriterion("device_id <=", value, "deviceId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdIn(List<Integer> values) {
-            addCriterion("category_id in", values, "categoryId");
+        public Criteria andDeviceIdIn(List<Integer> values) {
+            addCriterion("device_id in", values, "deviceId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdNotIn(List<Integer> values) {
-            addCriterion("category_id not in", values, "categoryId");
+        public Criteria andDeviceIdNotIn(List<Integer> values) {
+            addCriterion("device_id not in", values, "deviceId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdBetween(Integer value1, Integer value2) {
-            addCriterion("category_id between", value1, value2, "categoryId");
+        public Criteria andDeviceIdBetween(Integer value1, Integer value2) {
+            addCriterion("device_id between", value1, value2, "deviceId");
             return (Criteria) this;
         }
 
-        public Criteria andCategoryIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("category_id not between", value1, value2, "categoryId");
+        public Criteria andDeviceIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("device_id not between", value1, value2, "deviceId");
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNull() {
-            addCriterion("name is null");
+        public Criteria andWaterInTIsNull() {
+            addCriterion("water_in_t is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNotNull() {
-            addCriterion("name is not null");
+        public Criteria andWaterInTIsNotNull() {
+            addCriterion("water_in_t is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNameEqualTo(String value) {
-            addCriterion("name =", value, "name");
+        public Criteria andWaterInTEqualTo(Float value) {
+            addCriterion("water_in_t =", value, "waterInT");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotEqualTo(String value) {
-            addCriterion("name <>", value, "name");
+        public Criteria andWaterInTNotEqualTo(Float value) {
+            addCriterion("water_in_t <>", value, "waterInT");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThan(String value) {
-            addCriterion("name >", value, "name");
+        public Criteria andWaterInTGreaterThan(Float value) {
+            addCriterion("water_in_t >", value, "waterInT");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("name >=", value, "name");
+        public Criteria andWaterInTGreaterThanOrEqualTo(Float value) {
+            addCriterion("water_in_t >=", value, "waterInT");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThan(String value) {
-            addCriterion("name <", value, "name");
+        public Criteria andWaterInTLessThan(Float value) {
+            addCriterion("water_in_t <", value, "waterInT");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("name <=", value, "name");
+        public Criteria andWaterInTLessThanOrEqualTo(Float value) {
+            addCriterion("water_in_t <=", value, "waterInT");
             return (Criteria) this;
         }
 
-        public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+        public Criteria andWaterInTIn(List<Float> values) {
+            addCriterion("water_in_t in", values, "waterInT");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotLike(String value) {
-            addCriterion("name not like", value, "name");
+        public Criteria andWaterInTNotIn(List<Float> values) {
+            addCriterion("water_in_t not in", values, "waterInT");
             return (Criteria) this;
         }
 
-        public Criteria andNameIn(List<String> values) {
-            addCriterion("name in", values, "name");
+        public Criteria andWaterInTBetween(Float value1, Float value2) {
+            addCriterion("water_in_t between", value1, value2, "waterInT");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotIn(List<String> values) {
-            addCriterion("name not in", values, "name");
+        public Criteria andWaterInTNotBetween(Float value1, Float value2) {
+            addCriterion("water_in_t not between", value1, value2, "waterInT");
             return (Criteria) this;
         }
 
-        public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("name between", value1, value2, "name");
+        public Criteria andWaterOutTIsNull() {
+            addCriterion("water_out_t is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("name not between", value1, value2, "name");
+        public Criteria andWaterOutTIsNotNull() {
+            addCriterion("water_out_t is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterOutTEqualTo(Float value) {
+            addCriterion("water_out_t =", value, "waterOutT");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterOutTNotEqualTo(Float value) {
+            addCriterion("water_out_t <>", value, "waterOutT");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterOutTGreaterThan(Float value) {
+            addCriterion("water_out_t >", value, "waterOutT");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterOutTGreaterThanOrEqualTo(Float value) {
+            addCriterion("water_out_t >=", value, "waterOutT");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterOutTLessThan(Float value) {
+            addCriterion("water_out_t <", value, "waterOutT");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterOutTLessThanOrEqualTo(Float value) {
+            addCriterion("water_out_t <=", value, "waterOutT");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterOutTIn(List<Float> values) {
+            addCriterion("water_out_t in", values, "waterOutT");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterOutTNotIn(List<Float> values) {
+            addCriterion("water_out_t not in", values, "waterOutT");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterOutTBetween(Float value1, Float value2) {
+            addCriterion("water_out_t between", value1, value2, "waterOutT");
+            return (Criteria) this;
+        }
+
+        public Criteria andWaterOutTNotBetween(Float value1, Float value2) {
+            addCriterion("water_out_t not between", value1, value2, "waterOutT");
             return (Criteria) this;
         }
     }

@@ -41,9 +41,14 @@
                             <td th:text="${device.status} ? 'On' : 'Off'"}>1</td>
                             <td th:text="${device.modeStr}">1</td>
                             <td th:text="${device.temper}">1</td>
+                            <td th:text="${device.text}">text</td>
                             <td>
-                                <a href="form.html" th:href="@{'/happ/view/' + ${device.id}}" th:text="${device.text}">Link</a>
+                                <a href="form.html" th:href="@{'/happ/view/' + ${device.id}}">Set</a>
                             </td>
+                            <td>
+                                <a href="list_data.html" th:href="@{'/happ/list_device_data/' + ${device.id}}">Dat</a>
+                            </td>
+
                         </tr>
                     </tbody>
                 </table>

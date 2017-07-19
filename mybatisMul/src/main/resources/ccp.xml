@@ -30,7 +30,7 @@
         </javaTypeResolver>
 
         <!-- 数据表对应的model层  -->
-        <javaModelGenerator targetPackage="sherry.data.domain" targetProject="${project}">
+        <javaModelGenerator targetPackage="sherry.data2.domain" targetProject="${project}">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -41,7 +41,7 @@
         </sqlMapGenerator>
 
         <!-- mybatis3中的mapper接口 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="sherry.data.mapper"  targetProject="${project}">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="sherry.data2.mapper"  targetProject="${project}">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 

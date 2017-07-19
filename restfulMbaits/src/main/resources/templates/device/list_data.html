@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments :: head(title='View Data')">
+    <meta charset="UTF-8"/>
+    <title>ff</title>
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav th:replace="blank::navvs">
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">View Devices Data</h1>
+                        <input id="deviceId" th:value="${device_id}" hidden>
+                        <h2>
+                            <a href="list.html" th:href="@{/happ/}">Return Devices</a>
+                        </h2>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+
+                <table class="table" id="dataShow">
+                    <thead>
+                        <tr>
+                            <th data-checkbox="true">se</th>
+                            <th data-field="id">ID</th>
+                            <th data-field="deviceId">STATUS</th>
+                            <th data-field="waterInT">STR</th>
+                            <th data-field="waterOutT">Temp</th>
+                        </tr>
+                    </thead>
+                </table>
+
+
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+
+    </div>
+
+<script type="text/javascript">
+    var currPageIndex=0;
+    var currLimit=10;
+
+    $(function(){
+        $("#dataShow").bootstrapTable({
+            classes: 'table table-hover',
+            url: "list_b_js",
+            sortName: "id",//排序列
+            striped: true,//條紋行
+            sidePagination: "server",//服务器分页
+            //showRefresh: true,//刷新功能
+            //showColumns: true,
+            //showPaginationSwitch: true,
+           //search: true,//搜索功能
+            clickToSelect: true,//选择行即选择checkbox
+            singleSelect: true,//仅允许单选
+            //searchOnEnterKey: true,//ENTER键搜索
+            pagination: true,//启用分页
+            escape: true,//过滤危险字符
+            dataField: "rows",
+            queryParams: getParams,//携带参数
+            pageList: [10, 25, 50, 100],//每页行数
+            pageIndex: 0,//其实页
+            pageSize: 10,
+            method: "post",//请求格式
+            toolbar: "#toolBar",
+
+            onPageChange: function (number, size) {
+                currPageIndex = number;
+                currLimit = size
+            },
+            onLoadSuccess: function ()
+            {
+                $("#searchBtn").button('reset');
+            }
+        });
+
+        //搜索
+        $("#searchBtn").click(function () {
+            $(this).button('loading');
+            var nullparamss = {};
+            $("#dataShow").bootstrapTable("refresh", nullparamss);
+
+        });
+        //enter键搜索
+        $("#searchKey").keydown(function (event) {
+            if (event.keyCode == 13)
+            {
+                $("#searchBtn").click();
+            }
+        });
+        //阻止enter键提交表单
+        $("#mainForm").submit(function () {
+            return false;
+        });
+    });
+    //默认加载时携带参数
+    function getParams(params) {
+        //var searchKey = $("#searchKey").val();
+        var id = $("#deviceId").val();
+        return {limit: params.limit, offset: params.offset, did: id };
+    }
+
+</script>
+</body>
+</html>

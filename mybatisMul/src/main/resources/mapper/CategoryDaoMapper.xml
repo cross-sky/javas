@@ -80,6 +80,14 @@
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -163,7 +171,6 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-
   <resultMap id="CategoryResult" type="sherry.data.dto.CategoryDto">
     <id property="id" column="CateId"></id>
     <association property="categoryDao" javaType="sherry.data.pojo.CategoryDao">
@@ -175,10 +182,11 @@
       <result property="name" column="ProductName"></result>
     </collection>
   </resultMap>
-  
+
   <select id="getById" parameterType="java.lang.Integer" resultMap="CategoryResult">
     SELECT category.id as CateId, category.name as CateName, product.id as ProductId, product.name as ProductName
     FROM category, product
     WHERE category.id=product.category_id AND category.id=#{id}
   </select>
+
 </mapper>

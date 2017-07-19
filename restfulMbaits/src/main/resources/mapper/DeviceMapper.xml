@@ -67,8 +67,4 @@
         id = #{id}
     </delete>
 
-
-
-
-
 </mapper>

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import sherry.happ.domain.DeviceDao;
 import sherry.happ.entity.DeviceHot;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**

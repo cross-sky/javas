@@ -1,14 +1,13 @@
 package sherry; 
 
-import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import sherry.data.dto.CategoryDto;
 import sherry.data.mapper.CategoryDaoMapper;
 import sherry.data.mapper.ProductDaoMapper;
@@ -112,8 +111,22 @@ public class ApplicationTest {
         for (ProductDao productDao1 : pList) {
             System.out.println("  |_" + productDao1.getName());
         }
-
     }
 
+    @Test
+    public void test_page() {
+        ProductDaoExample example = new ProductDaoExample();
+//        ProductDaoExample.Criteria criteria = example.createCriteria();
+//        criteria.andCategoryIdEqualTo(2);
+        example.setLimit(4);
+        example.setOffset(1);
+        List<ProductDao> pList = productDaoMapper.selectByExample(example);
+        System.out.println("product page:" + pList.size());
+        for (ProductDao productDao1 : pList) {
+            System.out.println("  |__" + productDao1.getName() + " + id=" + productDao1.getCategoryId());
+        }
+
+        System.out.println(new ProductDao());
+    }
 
 } 
