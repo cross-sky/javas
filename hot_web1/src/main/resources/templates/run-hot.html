@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments_header::head('hot')">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+    <!-- Start: Header -->
+    <div th:replace="fragments_navbar::navbars_d"></div>
+    <!-- End: Header -->
+
+    <!-- Start: Content -->
+    <div class="container-fluid content">
+        <div class="row">
+            <!-- Sidebar -->
+            <div th:replace="fragments_sidebar::sidebar_d"></div>
+            <!-- End Sidebar -->
+
+            <!-- Main Page -->
+            <div class="main ">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="pull-left">
+                        <ol class="breadcrumb visible-sm visible-md visible-lg">
+                            <li><a href="index.html" th:href="@{/home}"><i class="icon fa fa-home"></i>主页</a></li>
+                            <li ><a href="#"><i class="fa fa-tachometer"></i>运行状态</a> </li>
+                            <li class="active"><i class="fa fa-tachometer"></i>采暖</li>
+                        </ol>
+                    </div>
+                    <div class="pull-right">
+                        <h2>采暖</h2>
+                    </div>
+                </div>
+                <!-- End Page Header -->
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6">
+                        <h3 align="center">采暖运行状态</h3>
+                    </div>
+                    <div class="col-md-5"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6">
+                        <img src="../static/img/page/p-run-hot.jpg" th:src="@{/img/page/p-run-hot.jpg}" class="img-responsive center-block" alt=""/>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="panel panel-default bk-bg-white">
+                            <div class="panel-heading bk-bg-white">
+                                <h6><i class="fa fa-indent red"></i>实时数据</h6>
+                                <div class="panel-actions">
+                                    <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div>
+                                    <label class="col-md-4 control-label">1-工作状态: </label>
+                                    <label class="col-md-6 control-label"><font color="red">制热中</font></label>
+                                </div>
+                                <div>
+                                    <label class="col-md-4 control-label">2-电源电压: </label>
+                                    <label class="col-md-6 control-label"><font color="red">220v</font></label>
+                                </div>
+                                <div>
+                                    <label class="col-md-4 control-label">3-环境温度: </label>
+                                    <label class="col-md-6 control-label"><font color="red">-3 ℃</font></label>
+                                </div>
+                                <div>
+                                    <label class="col-md-4 control-label">4-出水温度: </label>
+                                    <label class="col-md-6 control-label"><font color="red">40 ℃</font></label>
+                                </div>
+                                <div>
+                                    <label class="col-md-4 control-label">5-进水温度: </label>
+                                    <label class="col-md-6 control-label"><font color="red">35 ℃</font></label>
+                                </div>
+                                <div>
+                                    <label class="col-md-4 control-label">6-制热量: </label>
+                                    <label class="col-md-6 control-label"><font color="red">13.4 KW</font></label>
+                                </div>
+                                <div>
+                                    <label class="col-md-4 control-label">7-工作时间 </label>
+                                    <label class="col-md-6 control-label"><font color="red">24h-32min</font></label>
+                                </div>
+                                <div>
+                                    <label class="col-md-4 control-label">8-异常: </label>
+                                    <label class="col-md-6 control-label"><font color="green">无</font></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Main Page -->
+
+            <!-- Footer -->
+            <div th:replace="fragments_sidebar::foot_d"></div>
+        </div>
+    </div>
+
+    <!-- Pages JS -->
+    <script src="/js/pages/calendar.js"></script>
+
+    <!-- end: JavaScript-->
+
+</body>
+</html>

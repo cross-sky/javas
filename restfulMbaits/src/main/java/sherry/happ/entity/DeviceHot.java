@@ -58,4 +58,16 @@ public class DeviceHot {
     public void setModeStr(String modeStr) {
         this.modeStr = modeStr;
     }
+
+    @Override
+    public String toString() {
+        return "DeviceHot{" +
+                "id=" + id +
+                ", status=" + status +
+                ", temper=" + temper +
+                ", text='" + text + '\'' +
+                ", mode=" + mode +
+                ", modeStr='" + modeStr + '\'' +
+                '}';
+    }
 }

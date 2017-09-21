@@ -22,11 +22,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="hot_web1" />
         <module name="mybatisMul" />
         <module name="restful" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="hot_web1" target="1.6" />
       <module name="mybatisMul" target="1.6" />
       <module name="restful" target="1.6" />
     </bytecodeTargetLevel>

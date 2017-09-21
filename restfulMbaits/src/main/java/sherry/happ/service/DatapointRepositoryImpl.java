@@ -35,7 +35,7 @@ public class DatapointRepositoryImpl implements DatapointRepository {
 
     @Override
     public int saveData(DataPoint dataPoint) {
-        return 0;
+        return mapper.insert(dataPoint);
     }
 
     @Override

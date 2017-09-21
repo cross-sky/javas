@@ -4,6 +4,7 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/hot_web1" />
     <file type="web" url="file://$PROJECT_DIR$/restfulMbaits" />
   </component>
   <component name="MavenProjectsManager">
@@ -11,6 +12,7 @@
       <list>
         <option value="$PROJECT_DIR$/restfulMbaits/pom.xml" />
         <option value="$PROJECT_DIR$/mybatisMul/pom.xml" />
+        <option value="$PROJECT_DIR$/hot_web1/pom.xml" />
       </list>
     </option>
   </component>

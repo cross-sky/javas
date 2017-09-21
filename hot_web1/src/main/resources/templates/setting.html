@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments_header::head('setting')">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+    <!-- Start: Header -->
+    <div th:replace="fragments_navbar::navbars_d"></div>
+    <!-- End: Header -->
+
+    <!-- Start: Content -->
+    <div class="container-fluid content">
+        <div class="row">
+            <!-- Sidebar -->
+            <div th:replace="fragments_sidebar::sidebar_d"></div>
+            <!-- End Sidebar -->
+
+            <!-- Main Page -->
+            <div class="main ">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="pull-left">
+                        <ol class="breadcrumb visible-sm visible-md visible-lg">
+                            <li><a href="index.html" th:href="@{/home}"><i class="icon fa fa-home"></i>主页</a></li>
+                            <li class="active"><i class="fa fa-wrench"></i>设置</li>
+                        </ol>
+                    </div>
+                    <div class="pull-right">
+                        <h2>设置</h2>
+                    </div>
+                </div>
+                <!-- End Page Header -->
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6">
+                        <h3 align="center">设备控制</h3>
+                    </div>
+                    <div class="col-md-5"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">
+                        <img src="../static/img/page/p-setting.jpg" th:src="@{/img/page/p-setting.jpg}" class="img-responsive center-block" alt=""/>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="panel panel-default bk-bg-white">
+                            <div class="panel-heading bk-bg-white">
+                                <h6><i class="fa fa-indent red"></i></h6>
+                                <div class="panel-actions">
+                                    <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal ">
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" >热泵设备控制：</label>
+                                        <div class="col-md-1"></div>
+                                        <label class="switch switch-success bk-margin-top-10">
+                                            <input type="checkbox" class="switch-input" checked />
+                                            <span class="switch-label" data-on="On" data-off="Off"></span>
+                                            <span class="switch-handle"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="room1">房间1温度设置：</label>
+                                        <div class="col-md-3">
+                                            <input type="text" id="room1" name="text-input" class="form-control" placeholder="18">
+                                        </div>
+                                        <label class="col-md-1 control-label" ><font color="red">℃</font> </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="room2">房间2温度设置：</label>
+                                        <div class="col-md-3">
+                                            <input type="text" id="room2" name="text-input" class="form-control" placeholder="18">
+                                        </div>
+                                        <label class="col-md-1 control-label" ><font color="red">℃</font> </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="room3">房间3温度设置：</label>
+                                        <div class="col-md-3">
+                                            <input type="text" id="room3" name="text-input" class="form-control" placeholder="18">
+                                        </div>
+                                        <label class="col-md-1 control-label"><font color="red">℃</font> </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="room4">房间4温度设置：</label>
+                                        <div class="col-md-3">
+                                            <input type="text" id="room4" name="text-input" class="form-control" placeholder="18">
+                                        </div>
+                                        <label class="col-md-1 control-label"><font color="red">℃</font> </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="room5">热水温度设置：</label>
+                                        <div class="col-md-3">
+                                            <input type="text" id="room5" name="text-input" class="form-control" placeholder="18">
+                                        </div>
+                                        <label class="col-md-1 control-label"><font color="red">℃</font> </label>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-9 col-sm-offset-3">
+                                            <button class="bk-margin-5 btn btn-info" type="submit">保存</button>
+                                            <button type="reset" class="bk-margin-5 btn btn-default">重置</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Main Page -->
+
+            <!-- Footer -->
+            <div th:replace="fragments_sidebar::foot_d"></div>
+        </div>
+    </div>
+
+    <!-- Pages JS -->
+    <script src="/js/pages/calendar.js"></script>
+
+    <!-- end: JavaScript-->
+
+</body>
+</html>

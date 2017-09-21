@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments_header::head('chart')">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+    <!-- Start: Header -->
+    <div th:replace="fragments_navbar::navbars_d"></div>
+    <!-- End: Header -->
+
+    <!-- Start: Content -->
+    <div class="container-fluid content">
+        <div class="row">
+            <!-- Sidebar -->
+            <div th:replace="fragments_sidebar::sidebar_d"></div>
+            <!-- End Sidebar -->
+
+            <!-- Main Page -->
+            <div class="main ">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="pull-left">
+                        <ol class="breadcrumb visible-sm visible-md visible-lg">
+                            <li><a href="index.html" th:href="@{/home}"><i class="icon fa fa-home"></i>主页</a></li>
+                            <li class="active"><i class="fa fa-bar-chart-o"></i>统计</li>
+                        </ol>
+                    </div>
+                    <div class="pull-right">
+                        <h2>统计</h2>
+                    </div>
+                </div>
+                <!-- End Page Header -->
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6">
+                        <h3 align="center">数据统计</h3>
+                    </div>
+                    <div class="col-md-5"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-default bk-bg-white">
+                            <div class="panel-heading bk-bg-white">
+                                <h6><i class="fa fa-random red"></i><span class="break"></span>日发电量和耗电量</h6>
+                                <div class="panel-actions">
+                                    <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="panel-body">
+                                <div id="day_sincos"  class="center" style="height:300px;" ></div>
+                                <!--
+                                <p id="hoverdata">Mouse position at (<span id="x">0</span>, <span id="y">0</span>). <span id="clickdata"></span></p>
+                            -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="panel panel-default bk-bg-white">
+                            <div class="panel-heading bk-bg-white">
+                                <h6><i class="fa fa-random red"></i><span class="break"></span>月发电量和耗电量</h6>
+                                <div class="panel-actions">
+                                    <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div id="month_sincos"  class="center" style="height:300px;" ></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- End Main Page -->
+
+            <!-- Footer -->
+            <div th:replace="fragments_sidebar::foot_d"></div>
+        </div>
+    </div>
+
+    <!-- Pages JS -->
+    <script type="text/javascript" src="../static/js/page/p_chart.js" th:src="@{/js/page/p_chart.js}" ></script>
+
+    <!-- end: JavaScript-->
+
+</body>
+</html>

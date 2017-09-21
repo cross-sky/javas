@@ -8,6 +8,8 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.convert.converter.Converter;
 import sherry.happ.entity.DeviceHot;
+import sherry.happ.service.CmdQueueRepository;
+import sherry.happ.service.CmdQueueRepositoryImpl;
 import sherry.happ.service.DeviceRepository;
 import sherry.happ.service.DeviceRepositoryImpl;
 
@@ -20,10 +22,15 @@ public class Application extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
-
+//
 //    @Bean
 //    public DeviceRepository deviceRepository() {
 //        return new DeviceRepositoryImpl();
+//    }
+//
+//    @Bean
+//    public CmdQueueRepository cmdQueueRepository() {
+//        return new CmdQueueRepositoryImpl();
 //    }
 
 //    @Bean

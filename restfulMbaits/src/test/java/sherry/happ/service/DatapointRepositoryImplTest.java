@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import sherry.Application;
 import sherry.datapoint.mapper.DataPointMapper;
@@ -79,9 +80,13 @@ public class DatapointRepositoryImplTest {
      * Method: saveData(DataPoint dataPoint)
      */
     @Test
+    @Rollback(value = true)
     public void testSaveData() throws Exception {
-//TODO: Test goes here... 
+        DataPoint dataPoint = new DataPoint();
+        dataPoint.setDeviceId(1);
+        dataPoint.setWaterInT(12.3f);
+        dataPoint.setWaterOutT(22.3f);
+        System.out.println("save" + this.datapointRepository.saveData(dataPoint));
     }
-
 
 } 

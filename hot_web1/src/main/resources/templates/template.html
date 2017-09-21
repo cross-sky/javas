@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments_header::head('index')">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+    <!-- Start: Header -->
+    <div th:replace="fragments_navbar::navbars_d"></div>
+    <!-- End: Header -->
+
+    <!-- Start: Content -->
+    <div class="container-fluid content">
+        <div class="row">
+            <!-- Sidebar -->
+            <div th:replace="fragments_sidebar::sidebar_d"></div>
+            <!-- End Sidebar -->
+
+            <!-- Main Page -->
+            <div class="main ">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="pull-left">
+                        <ol class="breadcrumb visible-sm visible-md visible-lg">
+                            <li><a href="index.html"><i class="icon fa fa-home"></i>Home</a></li>
+                            <li class="active"><i class="fa fa-calendar"></i>Calendar</li>
+                        </ol>
+                    </div>
+                    <div class="pull-right">
+                        <h2>Calendar</h2>
+                    </div>
+                </div>
+                <!-- End Page Header -->
+
+                <div class="row">
+                    main
+                </div>
+
+            </div>
+            <!-- End Main Page -->
+
+            <!-- Footer -->
+            <div th:replace="fragments_sidebar::foot_d"></div>
+        </div>
+    </div>
+
+    <!-- Pages JS -->
+    <script src="/js/pages/calendar.js"></script>
+
+    <!-- end: JavaScript-->
+
+</body>
+</html>

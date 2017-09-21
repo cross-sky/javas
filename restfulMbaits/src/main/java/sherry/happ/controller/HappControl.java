@@ -5,14 +5,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import sherry.entity.PageTb;
-import sherry.entity.RspDpTb;
-import sherry.entity.RspTb;
+import sherry.datapoint.pojo.CmdQueue;
+import sherry.entity.*;
 import sherry.happ.entity.DeviceHot;
+import sherry.happ.service.CmdQueueRepository;
 import sherry.happ.service.DatapointRepository;
 import sherry.happ.service.DeviceRepository;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -23,13 +24,24 @@ import java.util.Map;
 @RequestMapping(value = "/happ")
 public class HappControl {
 
+
     private final DeviceRepository deviceRepository;
 
     @Autowired
     private DatapointRepository datapointRepository;
 
-    public HappControl(DeviceRepository deviceRepository) {
+//    @Autowired
+//    private  CmdQueueRepository cmdQueueRepository;
+
+    private final CmdQueueRepository cmdQueueRepository;
+
+//    public HappControl(DeviceRepository deviceRepository) {
+//        this.deviceRepository = deviceRepository;
+//    }
+
+    public HappControl(DeviceRepository deviceRepository, CmdQueueRepository cmdQueueRepository) {
         this.deviceRepository = deviceRepository;
+        this.cmdQueueRepository = cmdQueueRepository;
     }
 
     private final Map<Integer, String> map = new HashMap<Integer, String>();
@@ -90,6 +102,49 @@ public class HappControl {
         return rspTb;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/rec_device", method = RequestMethod.POST)
+    public DeviceHot rec_device_data(@RequestBody RecDeviceDat recDeviceDat) {
+        DeviceInfo deviceInfo = new DeviceInfo();
+        deviceInfo.setId(recDeviceDat.getdInfo().getId());
+        deviceInfo.setStr(recDeviceDat.getdInfo().getStr());
+        DeviceHot rDevice = new DeviceHot();
+        System.out.println("bbq" + recDeviceDat);
+
+        List<CmdQueue> cmds = cmdQueueRepository.select(deviceInfo.getStr(), deviceInfo.getId());
+        if (cmds.size() == 0) {
+            rDevice.setText("unknown key");
+            return rDevice;
+        }
+
+        CmdQueue cmd = cmds.get(0);
+        String ack = recDeviceDat.getAck();
+        if (cmd.getReadCmd() == 1) {
+            //recDeviceDat.getAck().equals(null)
+            if (ack == null || "".equals(ack)) {
+                System.out.println("set device");
+
+                //get command
+                DeviceHot device = this.deviceRepository.findDevice(Long.valueOf(cmd.getDeviceId()));
+                rDevice.setStatus(device.getStatus());
+                rDevice.setMode(device.getMode());
+                rDevice.setTemper(device.getTemper());
+                rDevice.setText("set");
+            } else if (ack.equals("suc")) {
+                System.out.println("success set device");
+                CmdQueue saveCmd = new CmdQueue();
+                saveCmd.setDeviceId(deviceInfo.getId());
+                saveCmd.setDeviceKey(deviceInfo.getStr());
+                saveCmd.setReadCmd(0);
+                cmdQueueRepository.update(saveCmd);
+                rDevice.setText("success");
+            }
+        }
+
+        return rDevice;
+
+    }
+
 
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
     public ModelAndView modify(DeviceHot deviceHot, RedirectAttributes redirect) {
@@ -104,7 +159,15 @@ public class HappControl {
             deviceHot = this.deviceRepository.save(deviceHot);
         }else {
             deviceHot = this.deviceRepository.updateDevice(deviceHot);
+            //save to cmd_queue
+            CmdQueue cmd = new CmdQueue();
+            cmd.setDeviceId(Integer.valueOf(deviceHot.getId().toString()));
+            cmd.setDeviceKey("cngdzhxz001");
+            cmd.setReadCmd(1);
+            this.cmdQueueRepository.update(cmd);
         }
+
+
         ModelAndView mode = new ModelAndView("redirect:/happ/view/{id}");
         mode.addObject("id", deviceHot.getId());
         //mode.addObject("message", "success saveDevice");

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en" th:replace="fragments_header::head('machine')">
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+    <!-- Start: Header -->
+    <div th:replace="fragments_navbar::navbars_d"></div>
+    <!-- End: Header -->
+
+    <!-- Start: Content -->
+    <div class="container-fluid content">
+        <div class="row">
+            <!-- Sidebar -->
+            <div th:replace="fragments_sidebar::sidebar_d"></div>
+            <!-- End Sidebar -->
+
+            <!-- Main Page -->
+            <div class="main ">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="pull-left">
+                        <ol class="breadcrumb visible-sm visible-md visible-lg">
+                            <li><a href="index.html" th:href="@{/home}"><i class="icon fa fa-home"></i>主页</a></li>
+                            <li ><a href="#"><i class="fa fa-tachometer"></i>运行状态</a> </li>
+                            <li class="active"><i class="fa fa-tachometer"></i>设备</li>
+                        </ol>
+                    </div>
+                    <div class="pull-right">
+                        <h2>设备</h2>
+                    </div>
+                </div>
+                <!-- End Page Header -->
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-6">
+                        <h3 align="center">设备运行状态</h3>
+                    </div>
+                    <div class="col-md-5"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <!--
+                    <div class="col-md-6">
+                        <img src="../static/img/page/p-run-hot.jpg" th:src="@{/img/page/p-run-hot.jpg}" class="img-responsive center-block" alt=""/>
+                    </div>
+                    -->
+                    <div class="col-md-11">
+                        <div class="panel panel-default bk-bg-white">
+                            <div class="panel-heading bk-bg-white">
+                                <h6><i class="fa fa-indent red"></i>设备实时数据</h6>
+                                <div class="panel-actions">
+                                    <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                                    <a href="#" class="btn-close"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">1-吸气温度: </label>
+                                        <label class="col-md-3 control-label"><font color="red">-8 ℃</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">2-排气温度: </label>
+                                        <label class="col-md-3 control-label"><font color="red">64 ℃</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">3-蒸发温度: </label>
+                                        <label class="col-md-3 control-label"><font color="red">-11 ℃</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">4-过热度: </label>
+                                        <label class="col-md-3 control-label"><font color="red">3 ℃</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">5-吸气压力: </label>
+                                        <label class="col-md-3 control-label"><font color="red">0.5 MPa</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">6-排气压力: </label>
+                                        <label class="col-md-3 control-label"><font color="red">2.4 MPa</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">7-变频模块温度: </label>
+                                        <label class="col-md-3 control-label"><font color="red">21 ℃</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">8-压缩机电流: </label>
+                                        <label class="col-md-3 control-label"><font color="red">16.2 A</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">9-压缩机频率: </label>
+                                        <label class="col-md-3 control-label"><font color="red">80 HZ</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">10-出水温度: </label>
+                                        <label class="col-md-3 control-label"><font color="red">40 ℃</font></label>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">11-环境温度 </label>
+                                        <label class="col-md-3 control-label"><font color="red">-3 ℃</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">12-主电子膨胀阀开度: </label>
+                                        <label class="col-md-3 control-label"><font color="red">183 步</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">13-辅电子膨胀阀开度 </label>
+                                        <label class="col-md-3 control-label"><font color="red">26 步</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">14-高压开关: </label>
+                                        <label class="col-md-3 control-label"><font color="green">闭合</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">15-低压开关 </label>
+                                        <label class="col-md-3 control-label"><font color="green">闭合</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">16-水流开关: </label>
+                                        <label class="col-md-3 control-label"><font color="green">闭合</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">17-水泵 </label>
+                                        <label class="col-md-3 control-label"><font color="green">开启</font></label>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-md-4 control-label">18-辅助电加热: </label>
+                                        <label class="col-md-3 control-label"><font color="green">关闭</font></label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- End Main Page -->
+
+            <!-- Footer -->
+            <div th:replace="fragments_sidebar::foot_d"></div>
+        </div>
+    </div>
+
+    <!-- Pages JS -->
+    <script src="/js/pages/calendar.js"></script>
+
+    <!-- end: JavaScript-->
+
+</body>
+</html>
